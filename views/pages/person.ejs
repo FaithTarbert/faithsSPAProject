@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<%- include('../partials/head'); %>
+	</head>
+	<body class="container">
+		<header><%- include('../partials/header'); %></header>
+
+		<main>
+			<div class="container">
+				
+				<div class="container">
+					<h1>Employee Profile Details</h1>
+				<div class="row justify-content-between">
+          <!-- YOUR EJS OR HANDLEBARS TEMPLATE LITERALS GO HERE -->
+					
+                        <p> <div class="card" style="width: 18rem;">
+                            <a href=`/directory/${id}`</a>
+							<img src="<%= employee.picture %>" class="card-img-top" alt="...">
+							<div class="card-body">
+							  <p class="card-text"><%= employee.firstName %> <%= employee.lastName %></p>
+							  <p class="card-text"><%= employee.email %></p>
+                              <button type="button" class="btn btn-primary">Primary</button>
+                              <a class="btn btn-primary mtn-sm" href="directory/<%= employee.id%>">View Profile</a>
+							</div>
+						  </div></p>
+				</div>
+			</div>
+		</main>
+
+		<footer><%- include('../partials/footer'); %></footer>
+</body>
+</html>
