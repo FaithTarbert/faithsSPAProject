@@ -25,27 +25,28 @@ app.get("/", function (req, res) {
 });
 
 // POST a new employee route
-app.post("/add", function (req, res) {
+app.post("/create_employee", function (req, res) {
 	// Useful for console logging the form inputs
-	// console.log(console.log(req.body))
+	let user = req.body.user;
 	// Example of form data for adding a new user
 	// var data = `{"email":"${req.body.user.email}","firstName":"${req.body.user.firstName}","id":"${req.body.user.id}","lastName":"${req.body.user.lastName}","picture":"${req.body.user.picture}","title":"${req.body.user.title}"}`;
-	// Your code goes here
+	res.redirect("/success");
 });
+
 
 // GET Directory of employees, returns an array of objects from the server.
 app.get("/directory", function (req, res) {
 	// Modify this route and the views
 	var config = {
 		method: 'get',
-		url: 'https://ron-sproject-default-rtdb.firebaseio.com/.json',
+		url: 'https://ron-sproject-default-rtdb.firebaseio.com/data/.json',
 		headers: { }
 	  };
 	  
 	  axios(config)
 	  .then(function (response) {
-		console.log(response.data);
-		let responseArr = Object.entries(response.data.data)
+		console.log(response);
+		let responseArr = Object.entries(response.data);
 		return responseArr;
 	  })
 	  .then((employees) => {
@@ -90,14 +91,32 @@ app.get("/directory/:uid", function (req, res) {
 	  .catch(function (error) {
 		console.log(error);
 	  });
-	  
-	
 });
 
 // GET Form to add new employee (GET the form first, then the forms "submit" button handles the POST request.
-
-app.get("/add", function (req, res) {
+app.get("/create_employee", function (req, res) {
 	res.render("pages/create_employee");
+});
+
+app.get("/success", function (req, res) {
+	console.log(req);
+	// var config = {
+	// 	method: 'post',
+	// 	url: 'https://ron-sproject-default-rtdb.firebaseio.com/data/.json',
+	// 	headers: { 
+	// 	  'Content-Type': 'application/json'
+	// 	},
+	// 	data : user
+	//   };
+	  
+	//   axios(config)
+	//   .then(function (response) {
+	// 	console.log(response.data);
+	//   })
+	//   .catch(function (error) {
+	// 	console.log(error);
+	//   });
+	res.render("pages/success");
 });
 
 // Express's .listen method is the final part of Express that fires up the server on the assigned port and starts "listening" for request from the app! (boilerplate code from the docs)
