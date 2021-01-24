@@ -58,24 +58,29 @@
       </nav>
     </div>
   </header>
-		<main>
-			<div class="container">
-				
-					<h1>Employee Profile Details</h1>
-				<div class="row justify-content-between">				
-                        <p> <div class="card" style="width: 18rem;">
-							<a href=`directory/<%= employee %>`></a>
-							
-							<img src="<%= employee.picture %>" class="card-img-top" alt="..." style="width: 90%">
-							<div class="card-body">
-							  <p class="card-text"><%= employee.firstName %> <%= employee.lastName %></p>
-							  <p class="card-text"><%= employee.email %></p>
-							</div>
-						  </div></p>
-				</div>
-			</div>
-		</main>
+  <body>
+    <main>
+        <div class="container pt-5">
+            <h1>Add/Edit Employee</h1>
+         <div class="bg-light p-2 rounded border my-5">
+            <h2>Edit Corgi: First Name</h2>
+            <p> <div style="margin-left: 390px;"><div class="card" style="width: 18rem;">
 
-		<footer><%- include('../partials/footer'); %></footer>
+            <img src="<%= employee.picture %>" class="card-img-top" alt="..." style="width: 80%">
+            <div class="card-body">
+              <p class="card-text"><%= employee.firstName %> <%= employee.lastName %></p>
+              <p class="card-text"><%= employee.email %></p>
+            </div></div>
+            </div></p>
+            <form id="update-employee-form" action="/update/:uid" method="post">
+              <div class="mb-3">
+                <div class="mb-2">  <label for="input-firstName" class="form-label">First Name:</label>
+                  <input type="text" name="user[firstName]"></div>
+          
+                  <div  style="text-align: center;"><input type="submit" value="Submit" href="/success"></form></div>
+            </form>
+         </div>
+        </div>
+    </main>
 </body>
 </html>
