@@ -8,24 +8,9 @@
 
 		<main>
 			<div class="container">
-				<h1>Top employees</h1>
+				<h1>Member Coalition For Cuteness: We Will ALL Be Petted!</h1>
 				<div class="container">
-					<p>
-						With a working GET request in Postman, you can now start to render
-						the response in HTML
-					</p>
-					<p>
-						Inside the "directory.ejs" page is a EJS version of a template
-						literal. With templates like EJS or Handlebars we can then loop over
-						the items of the array to render the HTML.
-          </p>
-          <p><ul>
-            <li>Starting with a working Postman request, inside your route console.log the response</li>
-            <li>Next you just need to pass the response object or array of objects into your template</li>
-          </ul> </p>
-          <p>The image below is just an example, remove it and render each employee like the example. Feel free to style it however you'd like! </p>
-          <p>Try mocking up some Bootstrap cards or columns with some hard coded data to get an idea of how your templates should look. </p>
-        </div>
+        		</div>
 				<div class="row justify-content-between">
           <!-- <img src="/images/example.png" class="img-fluid"> -->
 		 
@@ -36,7 +21,9 @@
 							<div class="card-body">
 							  <p class="card-text"><%= employee[1].firstName %> <%= employee[1].lastName %></p>
 							  <p class="card-text"><%= employee[1].email %></p>
-							  <a class="btn btn-primary mtn-sm" href="directory/<%= employee[0]%>">View Profile</a>
+							  <a class="btn btn-primary mtn-sm" href="directory/<%= employee[0]%>">View Profile</a><br><br>
+							  <a class="btn btn-primary mtn-sm" href="update/<%= employee[0]%>">Edit Profile</a> 
+							  <a class="btn btn-primary mtn-sm" href="delete/<%= employee[0]%>">Delete Profile</a>
 							</div>
 						  </div></p>
 					<% }); %>

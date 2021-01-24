@@ -1,16 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+    <style>
+    body, html {   
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display:table;
+    }
+    body {
+      display:table-cell;
+      vertical-align:middle;
+    }
+    form {
+        display:table;/* shrinks to fit content */
+        margin:auto;
+    }
+  </style>
+	</head>
+	<body class="container">
+		<header><%- include('../partials/header'); %></header>
     <main>
         <div class="container pt-5">
-            <h1>Add a User</h1>
-            <p>Using the submit button we will send a POST request to the database and then display a success message. </p>
+            <h1>Join The Pack!</h1>
+            <img src="../images/corgi-pack.jpg" style="width: 30%">
+            <!-- <p>Using the submit button we will send a POST request to the database and then display a success message. </p> -->
          <div class="bg-light p-2 rounded border my-5">
-          <h2>Add Your User</h2>
+          <h2>Add Corgi</h2>
             <form id="create-employee-form" action="/create_employee" method="post">
               <div class="mb-3">
                 <div class="mb-2">  <label for="input-firstName" class="form-label">First Name:</label>
                   <input type="text" name="user[firstName]"></div>
                 <div class="mb-2">  <label for="input-lastName" class="form-label">Last Name:</label>
+                  <input type="text" name="user[lastName]"></div>
+                <div class="mb-2"><label for="input-email" class="form-label" style="margin-right: 36px;">Email:</label>
+                  <input type="text" name="user[email]"></div>
+                <div class="mb-2">   <label for="input-id" class="form-label" style="margin-right: 58px;">ID:</label>
+                  <input type="text" name="user[id]"></div>
+               <div class="mb-2"> <label for="input-picture" class="form-label" style="margin-right: 25px;">Picture:</label>
+                 <input type="text" name="user[picture]"></div>
+               <div class="mb-2"> <label for="input" class="form-label" style="margin-right: 44px;">Title:</label>
+                  <input type="text-title" name="user[title]"></div>
+                <div  style="text-align: center;"><input type="submit" value="Submit" href="/success"></div>
+            </form>
+            <!-- <h2>Edit Employee First Name</h2>
+            
+            <form id="edit-employee-form" action="/create_employee" method="post">
+              <div class="mb-3">
+                <div class="mb-2">  <label for="input-firstName" class="form-label">First Name:</label>
+                  <input type="text" name="user[firstName]"></div> -->
+                <!-- <div class="mb-2">  <label for="input-lastName" class="form-label">Last Name:</label>
                   <input type="text" name="user[lastName]"></div>
                 <div class="mb-2"><label for="input-email" class="form-label">Email:</label>
                   <input type="text" name="user[email]"></div>
@@ -19,9 +60,9 @@
                <div class="mb-2"> <label for="input-picture" class="form-label">Picture:</label>
                  <input type="text" name="user[picture]"></div>
                <div class="mb-2"> <label for="input" class="form-label">Title:</label>
-                  <input type="text-title" name="user[title]"></div>
-                <input type="submit" value="Submit" href="/success">
-            </form>
+                  <input type="text-title" name="user[title]"></div> -->
+                <!-- <input type="submit" value="Submit" href="/success">
+            </form> -->
          </div>
         </div>
     </main>
